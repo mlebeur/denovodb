@@ -5,7 +5,6 @@ from biothings import config
 logging = config.logger
 def load_denovodb(data_folder):
     infile = os.path.abspath("/opt/biothings/GRCh37/denovodb/denovo-db.non-ssc-samples.variants.tsv")
-	infile = os.path.abspath("/opt/biothings/GRCh37/denovodb/denovo-db.ssc-samples.variants.tsv")
     assert os.path.exists(infile)
     dat = pandas.read_csv(infile,sep="\t",squeeze=True,quoting=csv.QUOTE_NONE).to_dict(orient='records')
     results = {}
