@@ -12,9 +12,9 @@ def load_denovodb(data_folder):
     for rec in dat:
         _id = str(rec["Chr"]) + "_" + str(rec["Position"]) + "_" + rec["REF"] + "_" + rec["ALT"]       
         process_key = lambda k: k.replace(" ","_").lower()
-	rec = dict_convert(rec,keyfn=process_key)
-	rec = dict_sweep(rec,vals=[np.nan])
-	results.setdefault(_id,[]).append(rec)
+        rec = dict_convert(rec,keyfn=process_key)
+        rec = dict_sweep(rec,vals=[np.nan])
+        results.setdefault(_id,[]).append(rec)
     for _id,docs in results.items():
         doc = {"_id": _id, "denovodb" : docs}
         yield doc
